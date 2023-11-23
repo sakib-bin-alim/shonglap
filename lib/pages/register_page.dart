@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:shonglap/components/my_button.dart';
-import 'package:shonglap/components/my_text_field.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+import '../components/my_button.dart';
+import '../components/my_text_field.dart';
+
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({super.key});
 
   @override
-  _LoginPageState createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   // text controllers
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +41,7 @@ class _LoginPageState extends State<LoginPage> {
 
                 // welcome back message
                 Text(
-                  "Welcome to Shonglap. Let's Connect!",
+                  "Let's create an account!",
                   style: TextStyle(
                     fontSize: 16,
                     color: Colors.grey[800],
@@ -66,13 +68,23 @@ class _LoginPageState extends State<LoginPage> {
                   obscureText: true,
                 ),
                 const SizedBox(
+                  height: 10,
+                ),
+
+                // confirm password textfield
+                MyTextField(
+                  controller: confirmPasswordController,
+                  hintText: "Confirm Password",
+                  obscureText: true,
+                ),
+                const SizedBox(
                   height: 25,
                 ),
 
-                // signin button
+                // signup button
                 MyButton(
                   onTap: () {},
-                  text: 'Sign In',
+                  text: 'Sign Up',
                 ),
                 const SizedBox(
                   height: 50,
@@ -82,12 +94,12 @@ class _LoginPageState extends State<LoginPage> {
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("Not a member?"),
+                    Text("Already a member?"),
                     SizedBox(
                       width: 4,
                     ),
                     Text(
-                      "Register now",
+                      "Login now",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                       ),
