@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shonglap/pages/login_page.dart';
 import 'package:shonglap/pages/register_page.dart';
+import 'package:shonglap/services/auth/login_or_register.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: RegisterPage(),
+      home: LoginOrRegister(),
     );
   }
 }

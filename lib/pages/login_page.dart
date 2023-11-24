@@ -3,7 +3,8 @@ import 'package:shonglap/components/my_button.dart';
 import 'package:shonglap/components/my_text_field.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+  final void Function()? onTap;
+  const LoginPage({super.key, required this.onTap});
 
   @override
   _LoginPageState createState() => _LoginPageState();
@@ -13,6 +14,9 @@ class _LoginPageState extends State<LoginPage> {
   // text controllers
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+
+  // sign in user
+  void signIn() {}
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +75,7 @@ class _LoginPageState extends State<LoginPage> {
 
                 // signin button
                 MyButton(
-                  onTap: () {},
+                  onTap: signIn,
                   text: 'Sign In',
                 ),
                 const SizedBox(
@@ -79,17 +83,20 @@ class _LoginPageState extends State<LoginPage> {
                 ),
 
                 // not a user? register now
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("Not a member?"),
-                    SizedBox(
+                    const Text("Not a member?"),
+                    const SizedBox(
                       width: 4,
                     ),
-                    Text(
-                      "Register now",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
+                    GestureDetector(
+                      onTap: widget.onTap,
+                      child: const Text(
+                        "Register now",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ],
