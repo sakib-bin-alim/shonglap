@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "200338386093",
+    "project_id": "shonglap-10bd5",
+    "storage_bucket": "shonglap-10bd5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:200338386093:android:8c2ab374c068ebda9bea24",
+        "android_client_info": {
+          "package_name": "com.example.shonglap"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTWd-WohqDrz_whDPns5y7eDtqwOfBl5U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
