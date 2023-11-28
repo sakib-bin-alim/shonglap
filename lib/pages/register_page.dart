@@ -1,4 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:shonglap/services/auth/auth_service.dart';
 
 import '../components/my_button.dart';
 import '../components/my_text_field.dart';
@@ -17,7 +21,24 @@ class _RegisterPageState extends State<RegisterPage> {
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
 
-  void signUp() {}
+  void signUp() async {
+    final authService = Provider.of<AuthService>(context, listen: false);
+
+    try {
+      authService.signUpWithEmailandPassword(
+        emailController.text,
+        passwordController.text,
+      );
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            e.toString(),
+          ),
+        ),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
