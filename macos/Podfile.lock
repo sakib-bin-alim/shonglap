@@ -634,7 +634,7 @@ PODS:
   - BoringSSL-GRPC/Implementation (0.0.24):
     - BoringSSL-GRPC/Interface (= 0.0.24)
   - BoringSSL-GRPC/Interface (0.0.24)
-  - cloud_firestore (4.13.2):
+  - cloud_firestore (4.13.3):
     - Firebase/CoreOnly (~> 10.18.0)
     - Firebase/Firestore (~> 10.18.0)
     - firebase_core
@@ -648,12 +648,12 @@ PODS:
   - Firebase/Firestore (10.18.0):
     - Firebase/CoreOnly
     - FirebaseFirestore (~> 10.18.0)
-  - firebase_auth (4.14.1):
+  - firebase_auth (4.15.0):
     - Firebase/Auth (~> 10.18.0)
     - Firebase/CoreOnly (~> 10.18.0)
     - firebase_core
     - FlutterMacOS
-  - firebase_core (2.23.0):
+  - firebase_core (2.24.0):
     - Firebase/CoreOnly (~> 10.18.0)
     - FlutterMacOS
   - FirebaseAppCheckInterop (10.18.0)
@@ -818,10 +818,10 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   abseil: 926fb7a82dc6d2b8e1f2ed7f3a718bce691d1e46
   BoringSSL-GRPC: 3175b25143e648463a56daeaaa499c6cb86dad33
-  cloud_firestore: e6122103fc8ea4a86058b81202b610190bca7e08
+  cloud_firestore: d67794000dbbc6fb6c21698445f00f1a823bb24e
   Firebase: 414ad272f8d02dfbf12662a9d43f4bba9bec2a06
-  firebase_auth: 7e6f4e07f913c109967660eec8b4236007d0624c
-  firebase_core: b57f52ccb63d2700bf22bc65ca0b08c66135ae6e
+  firebase_auth: a403926db1dd7734c02f354e03b5d8b70b7dcc7d
+  firebase_core: 8852b730fc6843e99c390e97fde4318d58218fa0
   FirebaseAppCheckInterop: 3cd914842ba46f4304050874cd284de82f154ffd
   FirebaseAuth: 12314b438fa76048540c8fb86d6cfc9e08595176
   FirebaseCore: 2322423314d92f946219c8791674d2f3345b598f
