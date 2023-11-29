@@ -22,6 +22,17 @@ class _RegisterPageState extends State<RegisterPage> {
   final confirmPasswordController = TextEditingController();
 
   void signUp() async {
+    // confirm password
+    if (passwordController.text != confirmPasswordController.text) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Passwords did not match'),
+        ),
+      );
+      return;
+    }
+
+    // auth service
     final authService = Provider.of<AuthService>(context, listen: false);
 
     try {
@@ -48,92 +59,94 @@ class _RegisterPageState extends State<RegisterPage> {
         child: Center(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 25),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const SizedBox(
-                  height: 60,
-                ),
-                // logo
-                const Icon(
-                  Icons.chat,
-                  size: 100,
-                ),
-                const SizedBox(
-                  height: 50,
-                ),
-
-                // welcome back message
-                Text(
-                  "Let's create an account!",
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.grey[800],
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const SizedBox(
+                    height: 60,
                   ),
-                ),
-                const SizedBox(
-                  height: 25,
-                ),
+                  // logo
+                  const Icon(
+                    Icons.chat,
+                    size: 100,
+                  ),
+                  const SizedBox(
+                    height: 50,
+                  ),
 
-                // email textfield
-                MyTextField(
-                  controller: emailController,
-                  hintText: "Email",
-                  obscureText: false,
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-
-                // password textfield
-                MyTextField(
-                  controller: passwordController,
-                  hintText: "Password",
-                  obscureText: true,
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-
-                // confirm password textfield
-                MyTextField(
-                  controller: confirmPasswordController,
-                  hintText: "Confirm Password",
-                  obscureText: true,
-                ),
-                const SizedBox(
-                  height: 25,
-                ),
-
-                // signup button
-                MyButton(
-                  onTap: signUp,
-                  text: "Sign Up",
-                ),
-                const SizedBox(
-                  height: 50,
-                ),
-
-                // not a user? register now
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text("Already a member?"),
-                    const SizedBox(
-                      width: 4,
+                  // welcome back message
+                  Text(
+                    "Let's create an account!",
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.grey[800],
                     ),
-                    GestureDetector(
-                      onTap: widget.onTap,
-                      child: const Text(
-                        "Login now",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
+                  ),
+                  const SizedBox(
+                    height: 25,
+                  ),
+
+                  // email textfield
+                  MyTextField(
+                    controller: emailController,
+                    hintText: "Email",
+                    obscureText: false,
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+
+                  // password textfield
+                  MyTextField(
+                    controller: passwordController,
+                    hintText: "Password",
+                    obscureText: true,
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+
+                  // confirm password textfield
+                  MyTextField(
+                    controller: confirmPasswordController,
+                    hintText: "Confirm Password",
+                    obscureText: true,
+                  ),
+                  const SizedBox(
+                    height: 25,
+                  ),
+
+                  // signup button
+                  MyButton(
+                    onTap: signUp,
+                    text: "Sign Up",
+                  ),
+                  const SizedBox(
+                    height: 50,
+                  ),
+
+                  // not a user? register now
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text("Already a member?"),
+                      const SizedBox(
+                        width: 4,
+                      ),
+                      GestureDetector(
+                        onTap: widget.onTap,
+                        child: const Text(
+                          "Login now",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-              ],
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),

@@ -46,82 +46,84 @@ class _LoginPageState extends State<LoginPage> {
         child: Center(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 25),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const SizedBox(
-                  height: 60,
-                ),
-                // logo
-                const Icon(
-                  Icons.chat,
-                  size: 100,
-                ),
-                const SizedBox(
-                  height: 50,
-                ),
-
-                // welcome back message
-                Text(
-                  "Welcome to Shonglap. Let's Connect!",
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.grey[800],
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const SizedBox(
+                    height: 60,
                   ),
-                ),
-                const SizedBox(
-                  height: 25,
-                ),
+                  // logo
+                  const Icon(
+                    Icons.chat,
+                    size: 100,
+                  ),
+                  const SizedBox(
+                    height: 50,
+                  ),
 
-                // email textfield
-                MyTextField(
-                  controller: emailController,
-                  hintText: "Email",
-                  obscureText: false,
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-
-                // password textfield
-                MyTextField(
-                  controller: passwordController,
-                  hintText: "Password",
-                  obscureText: true,
-                ),
-                const SizedBox(
-                  height: 25,
-                ),
-
-                // signin button
-                MyButton(
-                  onTap: signIn,
-                  text: 'Sign In',
-                ),
-                const SizedBox(
-                  height: 50,
-                ),
-
-                // not a user? register now
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text("Not a member?"),
-                    const SizedBox(
-                      width: 4,
+                  // welcome back message
+                  Text(
+                    "Welcome to Shonglap. Let's Connect!",
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.grey[800],
                     ),
-                    GestureDetector(
-                      onTap: widget.onTap,
-                      child: const Text(
-                        "Register now",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
+                  ),
+                  const SizedBox(
+                    height: 25,
+                  ),
+
+                  // email textfield
+                  MyTextField(
+                    controller: emailController,
+                    hintText: "Email",
+                    obscureText: false,
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+
+                  // password textfield
+                  MyTextField(
+                    controller: passwordController,
+                    hintText: "Password",
+                    obscureText: true,
+                  ),
+                  const SizedBox(
+                    height: 25,
+                  ),
+
+                  // signin button
+                  MyButton(
+                    onTap: signIn,
+                    text: 'Sign In',
+                  ),
+                  const SizedBox(
+                    height: 50,
+                  ),
+
+                  // not a user? register now
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text("Not a member?"),
+                      const SizedBox(
+                        width: 4,
+                      ),
+                      GestureDetector(
+                        onTap: widget.onTap,
+                        child: const Text(
+                          "Register now",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-              ],
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),

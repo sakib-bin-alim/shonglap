@@ -7,9 +7,9 @@ import 'package:shonglap/services/auth/auth_gate.dart';
 import 'package:shonglap/services/auth/auth_service.dart';
 import 'package:shonglap/services/auth/login_or_register.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Firebase.initializeApp();
+  await Firebase.initializeApp();
   runApp(
     ChangeNotifierProvider(
       create: (context) => AuthService(),
