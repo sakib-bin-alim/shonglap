@@ -24,12 +24,17 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
-        title: const Text('Shonglap'),
+        centerTitle: true,
+        title: const Text(
+          'Shonglap',
+          style: TextStyle(color: Colors.white),
+        ),
         backgroundColor: Colors.grey.shade800,
         actions: [
           IconButton(
             onPressed: signOut,
             icon: const Icon(Icons.logout),
+            color: Colors.white,
           ),
         ],
       ),
