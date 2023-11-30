@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:shonglap/components/chat_bubble.dart';
 import 'package:shonglap/components/my_text_field.dart';
 import 'package:shonglap/services/chat/chat_services.dart';
 
@@ -33,7 +34,9 @@ class _ChatPageState extends State<ChatPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey.shade200,
       appBar: AppBar(
+        backgroundColor: Colors.grey.shade800,
         title: Text(widget.receiverUserEmail),
       ),
       body: Column(
@@ -43,8 +46,16 @@ class _ChatPageState extends State<ChatPage> {
             child: _buildMessageList(),
           ),
 
+          SizedBox(
+            height: 15,
+          ),
+
           // user input
           __buildMessageInput(),
+
+          SizedBox(
+            height: 25,
+          ),
         ],
       ),
     );
@@ -81,36 +92,59 @@ class _ChatPageState extends State<ChatPage> {
     var alignment = (data['senderId'] == _firebaseAuth.currentUser!.uid)
         ? Alignment.centerRight
         : Alignment.centerLeft;
+    var chatColor = (data['senderId'] == _firebaseAuth.currentUser!.uid)
+        ? Colors.lightBlue
+        : Colors.lightGreen;
 
     return Container(
       alignment: alignment,
-      child: Column(
-        children: [
-          Text(data['senderEmail']),
-          Text(data['message']),
-        ],
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          crossAxisAlignment:
+              (data['senderId'] == _firebaseAuth.currentUser!.uid)
+                  ? CrossAxisAlignment.end
+                  : CrossAxisAlignment.start,
+          mainAxisAlignment:
+              (data['senderId'] == _firebaseAuth.currentUser!.uid)
+                  ? MainAxisAlignment.end
+                  : MainAxisAlignment.start,
+          children: [
+            Text(data['senderEmail']),
+            const SizedBox(
+              height: 3,
+            ),
+            ChatBubble(
+              message: data['message'],
+              bubbleColor: chatColor,
+            ),
+          ],
+        ),
       ),
     );
   }
 
   // build message input
   Widget __buildMessageInput() {
-    return Row(
-      children: [
-        Expanded(
-          child: MyTextField(
-            controller: _messageController,
-            hintText: 'Enter your message',
-            obscureText: false,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 25),
+      child: Row(
+        children: [
+          Expanded(
+            child: MyTextField(
+              controller: _messageController,
+              hintText: 'Enter your message',
+              obscureText: false,
+            ),
           ),
-        ),
 
-        // Icon Button
-        IconButton(
-          onPressed: sendMessage,
-          icon: const Icon(Icons.send),
-        ),
-      ],
+          // Icon Button
+          IconButton(
+            onPressed: sendMessage,
+            icon: const Icon(Icons.send),
+          ),
+        ],
+      ),
     );
   }
 }
